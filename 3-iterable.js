@@ -7,7 +7,31 @@ It is okay if your iterator behaves strangely when the group is modified during 
 */
 
 // Your code here (and the code from the previous exercise)
+class Group {
+  constructor() {
+    this.people = new Set();
+  }
 
+  add(value) {
+    this.people.add(value);
+  }
+
+  delete(value) {
+    this.people.delete(value);
+  }
+
+  has(value) {
+    return this.people.has(value);
+  }
+
+  static from(iterable) {
+    let group = new Group();
+    for (let value of iterable) {
+      group.add(value);
+    }
+    return group;
+  }
+}
 
 // Tests:
 for (let value of Group.from(["a", "b", "c"])) {

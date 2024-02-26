@@ -6,9 +6,32 @@ Use the === operator, or something equivalent such as indexOf, to determine whet
 Give the class a static from method that takes an iterable object as argument and creates a group that contains all the values produced by iterating over it.
 */
 
-class Group {
-    // Your code here.
+  class Group {
+    constructor() {
+      this.people = new Set();
+    }
+  
+    add(value) {
+      this.people.add(value);
+    }
+  
+    delete(value) {
+      this.people.delete(value);
+    }
+  
+    has(value) {
+      return this.people.has(value);
+    }
+  
+    static from(iterable) {
+      let group = new Group();
+      for (let value of iterable) {
+        group.add(value);
+      }
+      return group;
+    }
   }
+  
   
 
   // Tests:
